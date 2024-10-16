@@ -1,27 +1,186 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* app/globals.css */
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.main-menu,
+.game-canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
 }
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+}
+
+h1,
+h2 {
+  margin-bottom: 20px;
+}
+
+.game-hub {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.resource-counters {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  width: 80%;
+  margin: 20px 0;
+}
+
+.icon {
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.icon:hover {
+  transform: scale(1.05);
+}
+
+.icon img {
+  width: 100px;
+  height: 100px;
+}
+
+.icon p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.move-counter,
+.goal-counter,
+.score-progress-bar {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+.progress-bar {
+  width: 200px;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  background-color: #4caf50;
+}
+
+.game-grid {
+  display: flex;
+  justify-content: center;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-tile {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+}
+
+.grid-tile.blue {
+  background-color: blue;
+}
+
+.grid-tile.green {
+  background-color: green;
+}
+
+.grid-tile.red {
+  background-color: red;
+}
+
+.grid-tile.yellow {
+  background-color: yellow;
+}
+
+.game-page {
+  text-align: center;
+}
+
+.game-header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.grid-tile {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  touch-action: none; /* Prevent default touch actions */
+}
+
+.grid-tile.blue {
+  background-color: blue;
+}
+
+.grid-tile.green {
+  background-color: green;
+}
+
+.grid-tile.red {
+  background-color: red;
+}
+
+.grid-tile.yellow {
+  background-color: yellow;
+}
+
+.grid-tile.swapping {
+  opacity: 0.5;
+}
+
+/* .game-grid {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-tile {
+  position: absolute;
+  transition: transform 0.5s ease-in-out;
+  /* Other styles */
+/*}
+
+/* You can style different colors */
+.grid-tile.blue {
+  background-color: blue;
+}
+
+.grid-tile.green {
+  background-color: green;
+}
+
+/* ...and so on */
